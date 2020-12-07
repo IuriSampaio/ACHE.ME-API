@@ -74,9 +74,10 @@ const sendMail = async( writer , writerPass , sendTo, subject, text, html ) =>{
     };
     
     const transporter = mail_controller.createTransport({
-        host: posibleService["gmail"].host,
-        service: posibleService["gmail"].service,
-        port: posibleService["gmail"].port,
+        service: "Gmail",
+        //host: posibleService["gmail"].host,
+        //service: posibleService["gmail"].service,
+        //port: posibleService["gmail"].port,
         auth   : {
             user  : writer,
             pass  : writerPass,
