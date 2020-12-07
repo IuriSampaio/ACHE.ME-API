@@ -10,7 +10,7 @@ admin.initializeApp({
 			"type": "service_account",
 			"project_id": "ache-me-a0225",
 			"private_key_id": "a7335f3c301d87ef83c978201ea46b9b242927b3",
-			"private_key": process.env.FIREBASE_PRIVATE_KEY,
+			"private_key": process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n"),
 			"client_email": process.env.FIREBASE_CLIENT_MAIL,
 			"client_id": "108015355157813188125",
 			"auth_uri": "https://accounts.google.com/o/oauth2/auth",
