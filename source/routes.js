@@ -59,7 +59,7 @@ routes.get('/posts/my/last',LostedPost.takeLastOfThisUser);
 routes.post('/posts', Multer.single("photo"), imageUpload, LostedPost.store);
 routes.delete('/posts/:idPost', LostedPost.delete);
 routes.put('/posts/:idPost', Multer.single("photo") , imageUpload , LostedPost.update);
-routes.put('/posts/:idPost', LostedPost.addComplaint );
+routes.put('/post/complaint/:idPost', LostedPost.addComplaint );
 
 routes.get('/posts/:idPost/comments',Comment.index);
 routes.post('/posts/:idPost/comments', Comment.store);
