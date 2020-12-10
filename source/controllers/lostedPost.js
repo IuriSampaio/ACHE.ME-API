@@ -312,6 +312,6 @@ module.exports = {
 
 	const wasUpdated = await LostedPost.update({ complaint: newComplaint },{ where:{ id : idPost }})
     
-	return wasUpdated ? res.status(201) : res.status(401);
+	return wasUpdated ? res.status(201).send({"status":true}) : res.status(401).send({"status":false});
     }
 };  
