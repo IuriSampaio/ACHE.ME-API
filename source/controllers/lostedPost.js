@@ -301,4 +301,17 @@ module.exports = {
 
         return res.status(201).send({"sucess":true});
     },
+    addComplaint : async ( req, res) => {
+	const { idPost  } = req.params;
+	
+	const thisPost = await LostedPost.findByPk(idPost);
+
+	const currentComplaint = thisPost.dataValues.complaint === null ? 0 : thisPost.dataValues.complaint;     
+
+	const newComplaint = currentComplaint + 1;
+
+	const wasUpdated = await LostedPost.update({ complaint: newComplaint },{ where:{ id : idPost }})
+    
+	return wasUpdated ? res.status(201) : res.status(401);
+    }
 };  

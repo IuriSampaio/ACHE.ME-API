@@ -8,6 +8,7 @@ module.exports = {
       description : { type : Sequelize.TEXT , allowNull: false },
       borned_at   : { type : Sequelize.DATE , allowNull: false },
       photo       : { type : Sequelize.TEXT , allowNull: false },
+      complaint   : { type : Sequelize.INTEGER , allowNull: true },
       created_at:  { type: Sequelize.DATE , allownull: false },
       updated_at:  { type: Sequelize.DATE , allownull: false },
       id_user     : { type : Sequelize.INTEGER , allowNull: false , 

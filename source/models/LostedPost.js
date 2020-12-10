@@ -6,7 +6,8 @@ class LostedPost extends Model {
             name          :  DataTypes.STRING, 
             description   :  DataTypes.STRING,
             borned_at     :  DataTypes.DATE,
-            photo         :  DataTypes.STRING
+            photo         :  DataTypes.STRING,
+	    complaint     :  DataTypes.INTEGER,
         },{ 
             sequelize, 
             tableName:"losted_post" 
