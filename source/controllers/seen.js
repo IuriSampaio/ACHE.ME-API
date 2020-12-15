@@ -10,7 +10,7 @@ const moment = require('moment');
 
 module.exports = {
     index: async( req , res ) => {
-        const seens = await Seen.findAll({order:[['id','DESC']]});
+        const seens = await Seen.findAll({order:[['created_at','DESC']]});
         let AllLostedSeen = [];
 
         seens.forEach(async (seen) =>{
