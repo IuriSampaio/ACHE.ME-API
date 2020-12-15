@@ -24,11 +24,11 @@ const mergeSort = (array) => {
         
         if ( left[0].id < right[0].id ) {
         
-            arr.push(left.pop())  
+            arr.push(left.shift())  
         
         } else {
     
-            arr.push(right.pop()) 
+            arr.push(right.shift()) 
         
         }
     }
@@ -77,7 +77,7 @@ module.exports = {
             })             
 
             if(AllLostedSeen.length == seens.length)
-                return res.status(201).send( mergeSort( AllLostedSeen ) );    
+                return res.status(201).send( mergeSort( AllLostedSeen ).reverse() );    
         });
     },
     store: async( req , res ) => {
