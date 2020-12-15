@@ -8,6 +8,37 @@ const Users = require('../models/Users');
 
 const moment = require('moment');
 
+const mergeSort = (array) => {
+  const half = array.length / 2
+  
+  if(array.length < 2){
+    return array 
+  }
+  
+  const left = array.splice(0, half)
+  
+  const merge = (left, right) => {
+    let arr = []
+        
+    while (left.length && right.length) {
+        
+        if ( left[0].id < right[0].id ) {
+        
+            arr.push(left.shift())  
+        
+        } else {
+    
+            arr.push(right.shift()) 
+        
+        }
+    }
+
+    return [ ...arr, ...left, ...right ]
+  }
+  
+  return merge(mergeSort(left),mergeSort(array))
+}
+
 module.exports = {
     index: async( req , res ) => {
         const seens = await Seen.findAll({order:[['created_at','DESC']]});
@@ -46,7 +77,7 @@ module.exports = {
             })             
 
             if(AllLostedSeen.length == seens.length)
-                return res.status(201).send(AllLostedSeen);    
+                return res.status(201).send( mergeSort( AllLostedSeen ) );    
         });
     },
     store: async( req , res ) => {
