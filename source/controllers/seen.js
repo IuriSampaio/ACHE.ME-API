@@ -24,11 +24,11 @@ const mergeSort = (array) => {
         
         if ( left[0].id < right[0].id ) {
         
-            arr.push(left.shift())  
+            arr.push(left.pop())  
         
         } else {
     
-            arr.push(right.shift()) 
+            arr.push(right.pop()) 
         
         }
     }
